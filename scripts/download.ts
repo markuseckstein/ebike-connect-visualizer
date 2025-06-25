@@ -11,7 +11,7 @@ import {
 const DIRECTORY_OUTPUT = 'data';
 
 const LOCALE = 'fr-FR';
-const TIMEZONE = 'Europe/Paris';
+const TIMEZONE = 'Europe/Berlin';
 
 const EXISTING_FILES_THRESHOLD = 3;
 
@@ -24,6 +24,7 @@ type CommonActivityRide = Omit<ResponseActivityTripHeaders[0]['ride_headers'][0]
 
 const timestampToISO = (timestamp: string) => {
   const date = new Date(parseInt(timestamp));
+  
   return date.toLocaleDateString(LOCALE, { timeZone: TIMEZONE }).split('/').reverse().join('') + date.toLocaleTimeString(LOCALE, { timeZone: TIMEZONE }).split(':').join('');
 };
 

@@ -4,7 +4,7 @@ import * as _ from 'radash';
 import { MISSING_DATA, MissingDataRange } from '../src/config';
 
 export const LOCALE = 'fr-FR';
-export const TIMEZONE = 'Europe/Paris';
+export const TIMEZONE = 'Europe/Berlin';
 
 const INPUT_DIRECTORY = 'data';
 const OUTPUT_DIRECTORY = 'public/data';

@@ -5,13 +5,13 @@ const source = 'public/icon.svg', output = 'public/';
 
 const configuration = {
   path: '/',
-  appName: 'Florian Cassayre\'s bike',
-  appShortName: 'Florian Cassayre\'s bike',
+  appName: 'Markus Eckstein\'s bike',
+  appShortName: 'Markus Eckstein\'s bike',
   appDescription: 'Bike trips visualization',
-  developerName: 'Florian Cassayre',
+  developerName: 'Florian Cassayre & Markus Eckstein',
   developerURL: 'https://florian.cassayre.me',
   dir: 'auto',
-  lang: 'fr-FR',
+  lang: 'de-DE',
   background: '#fff',
   theme_color: '#fff',
   appleStatusBarStyle: 'black-translucent',

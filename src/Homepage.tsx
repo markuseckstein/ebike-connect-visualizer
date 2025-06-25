@@ -31,7 +31,7 @@ export const Homepage = () => {
             my={{ base: 3, md: 0 }}
           />
           <Box fontWeight="bold">
-            Florian Cassayre
+            Markus Eckstein
           </Box>
         </HStack>
 
@@ -43,7 +43,7 @@ export const Homepage = () => {
             bgColor="transparent"
             icon={<BsGithub />}
             as={'a'}
-            href="https://github.com/FlorianCassayre/ebike-visualization"
+            href="https://github.com/markuseckstein/ebike-connect-visualizer"
             target="_blank"
             rel="noopener"
           />
