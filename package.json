@@ -28,7 +28,8 @@
     "favicons": "tsx scripts/favicons.ts",
     "download": "tsx --env-file .env scripts/download.ts",
     "compile": "tsx scripts/compile.ts",
-    "download-compile": "npm run download && npm run compile"
+    "download-compile": "npm run download && npm run compile",
+    "combine-tracks": "tsx scripts/combine_tracks.ts"
   },
   "eslintConfig": {
     "extends": [
