@@ -1,11 +1,37 @@
-import { useDataQuery } from '../hooks/useDataQuery';
-import React from 'react';
-import { TargetStatistics } from '../types/types';
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { Box, Heading, Text, useColorModeValue, useTheme } from '@chakra-ui/react';
+import { useDataQuery } from "../hooks/useDataQuery";
+import React from "react";
+import { TargetStatistics } from "../types/types";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
+import {
+  Box,
+  Heading,
+  Text,
+  useColorModeValue,
+  useTheme,
+} from "@chakra-ui/react";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 interface MonthlyChartContentProps {
   data: Record<string, TargetStatistics>;
@@ -13,11 +39,18 @@ interface MonthlyChartContentProps {
 
 const MonthlyChartContent: React.FC<MonthlyChartContentProps> = ({ data }) => {
   const theme = useTheme();
-  const color = useColorModeValue(theme.colors.blue[500], theme.colors.blue[200]);
+  const color = useColorModeValue(
+    theme.colors.blue[500],
+    theme.colors.blue[200],
+  );
 
   const lastMonths = 12;
 
-  const barData = Object.entries(data).map(([key, obj]) => ({ name: key, ...obj, distance: obj.distance / 1000 })).reverse().slice(0, lastMonths).reverse();
+  const barData = Object.entries(data)
+    .map(([key, obj]) => ({ name: key, ...obj, distance: obj.distance / 1000 }))
+    .reverse()
+    .slice(0, lastMonths)
+    .reverse();
 
   return (
     <Box w="100%">
@@ -43,12 +76,10 @@ const MonthlyChartContent: React.FC<MonthlyChartContentProps> = ({ data }) => {
 };
 
 export const MonthlyChart = () => {
-  const { data } = useDataQuery('statisticsMonthly');
+  const { data } = useDataQuery("statisticsMonthly");
 
   if (!data) {
     return null;
   }
-  return (
-    <MonthlyChartContent data={data} />
-  )
+  return <MonthlyChartContent data={data} />;
 };

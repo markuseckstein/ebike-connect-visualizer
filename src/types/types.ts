@@ -17,10 +17,10 @@ export interface TargetStatistics {
 }
 
 export interface TargetStatisticsAggregated {
-  meanCount: number,
-  stdDevCount: number,
-  meanDistance: number,
-  stdDevDistance: number,
+  meanCount: number;
+  stdDevCount: number;
+  meanDistance: number;
+  stdDevDistance: number;
 }
 
 export interface TargetRecords {
@@ -40,7 +40,11 @@ export interface TargetGears {
   values: TargetBuckets;
   gears: number[];
   gearDistribution: [number, number, number][];
-  speedGearDistribution: { speed: number, values: number[] }[];
+  speedGearDistribution: { speed: number; values: number[] }[];
 }
 
-export type TargetAccelerations = { speed: number, meanAcceleration: number, stdDevAcceleration: number }[];
+export type TargetAccelerations = {
+  speed: number;
+  meanAcceleration: number;
+  stdDevAcceleration: number;
+}[];

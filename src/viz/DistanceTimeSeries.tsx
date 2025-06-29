@@ -1,25 +1,49 @@
-import { useDataQuery } from '../hooks/useDataQuery';
-import React from 'react';
-import { TargetCumulative } from '../types/types';
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { Box, Heading, useColorModeValue, useTheme } from '@chakra-ui/react';
+import { useDataQuery } from "../hooks/useDataQuery";
+import React from "react";
+import { TargetCumulative } from "../types/types";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { Box, Heading, useColorModeValue, useTheme } from "@chakra-ui/react";
 
 interface DistanceTimeSeriesContentProps {
   data: TargetCumulative;
 }
 
-const DistanceTimeSeriesContent: React.FC<DistanceTimeSeriesContentProps> = ({ data }) => {
+const DistanceTimeSeriesContent: React.FC<DistanceTimeSeriesContentProps> = ({
+  data,
+}) => {
   const theme = useTheme();
-  const color = useColorModeValue(theme.colors.pink[500], theme.colors.pink[200]);
+  const color = useColorModeValue(
+    theme.colors.pink[500],
+    theme.colors.pink[200],
+  );
 
-  const seriesData = data.map(([name, value]) => ({ name: Date.parse(name), value: value / 1000 }));
+  const seriesData = data.map(([name, value]) => ({
+    name: Date.parse(name),
+    value: value / 1000,
+  }));
 
-  const formatXTick = (timestamp: number) => new Date(timestamp).getFullYear().toString();
-  const xTicks = seriesData.map(({ name }) => new Date(name)).filter(date => date.getMonth() === 0 && date.getDate() === 1).map(date => date.getTime());
+  const formatXTick = (timestamp: number) =>
+    new Date(timestamp).getFullYear().toString();
+  const xTicks = seriesData
+    .map(({ name }) => new Date(name))
+    .filter((date) => date.getMonth() === 0 && date.getDate() === 1)
+    .map((date) => date.getTime());
 
   return (
     <Box w="100%">
-      <Heading as="h1" fontSize={{ base: "2xl", md: "3xl" }} mb={3} textAlign="center">
+      <Heading
+        as="h1"
+        fontSize={{ base: "2xl", md: "3xl" }}
+        mb={3}
+        textAlign="center"
+      >
         Distance over time
       </Heading>
       <ResponsiveContainer width="100%" height={300}>
@@ -38,12 +62,10 @@ const DistanceTimeSeriesContent: React.FC<DistanceTimeSeriesContentProps> = ({ d
 };
 
 export const DistanceTimeSeries = () => {
-  const { data } = useDataQuery('cumulativeDistance');
+  const { data } = useDataQuery("cumulativeDistance");
 
   if (!data) {
     return null;
   }
-  return (
-    <DistanceTimeSeriesContent data={data} />
-  )
+  return <DistanceTimeSeriesContent data={data} />;
 };

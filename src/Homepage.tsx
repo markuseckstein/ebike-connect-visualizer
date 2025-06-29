@@ -9,13 +9,13 @@ import {
   HStack,
   Spinner,
   Center,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { BsGithub } from 'react-icons/bs';
-import { lazily } from 'react-lazily';
-import React, { Suspense } from 'react';
+import { BsGithub } from "react-icons/bs";
+import { lazily } from "react-lazily";
+import React, { Suspense } from "react";
 
-const { Visualizations } = lazily(() => import('./Visualizations'));
+const { Visualizations } = lazily(() => import("./Visualizations"));
 
 export const Homepage = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -27,12 +27,10 @@ export const Homepage = () => {
           <Image
             width={"15%"}
             src="/icon.svg"
-            style={{ pointerEvents: 'none' }}
+            style={{ pointerEvents: "none" }}
             my={{ base: 3, md: 0 }}
           />
-          <Box fontWeight="bold">
-            Markus Eckstein
-          </Box>
+          <Box fontWeight="bold">Markus Eckstein</Box>
         </HStack>
 
         <Spacer />
@@ -42,7 +40,7 @@ export const Homepage = () => {
             aria-label="GitHub"
             bgColor="transparent"
             icon={<BsGithub />}
-            as={'a'}
+            as={"a"}
             href="https://github.com/markuseckstein/ebike-connect-visualizer"
             target="_blank"
             rel="noopener"

@@ -1,22 +1,27 @@
-import React from 'react';
-import { Records } from './viz/Records';
-import { DailyCalendar } from './viz/DailyCalendar';
-import { DistanceTimeSeries } from './viz/DistanceTimeSeries';
-import { MonthlyChart } from './viz/MonthlyChart';
-import { CadenceDistribution } from './viz/CadenceDistribution';
-import { GearUsage } from './viz/GearUsage';
-import { SpeedGearDistribution } from './viz/SpeedGearDistribution';
-import { Grid, GridItem } from '@chakra-ui/react';
-import { SpeedDistribution } from './viz/SpeedDistribution';
-import { PowerDistribution } from './viz/PowerDistribution';
-import { SpeedAccelerationChart } from './viz/SpeedAccelerationChart';
-import { WeeklyChart } from './viz/WeeklyChart';
+import React from "react";
+import { Records } from "./viz/Records";
+import { DailyCalendar } from "./viz/DailyCalendar";
+import { DistanceTimeSeries } from "./viz/DistanceTimeSeries";
+import { MonthlyChart } from "./viz/MonthlyChart";
+import { CadenceDistribution } from "./viz/CadenceDistribution";
+import { GearUsage } from "./viz/GearUsage";
+import { SpeedGearDistribution } from "./viz/SpeedGearDistribution";
+import { Grid, GridItem } from "@chakra-ui/react";
+import { SpeedDistribution } from "./viz/SpeedDistribution";
+import { PowerDistribution } from "./viz/PowerDistribution";
+import { SpeedAccelerationChart } from "./viz/SpeedAccelerationChart";
+import { WeeklyChart } from "./viz/WeeklyChart";
 
 export const Visualizations: React.FC = () => {
-  const largeProps = { colSpan: 2 }
-  const smallProps = { colSpan: { lg: 1, base: 2 }, overflow: 'hidden' };
+  const largeProps = { colSpan: 2 };
+  const smallProps = { colSpan: { lg: 1, base: 2 }, overflow: "hidden" };
   return (
-    <Grid templateColumns="repeat(2, 1fr)" gap={{ base: 10, lg: 20 }} mt={3} pt={6}>
+    <Grid
+      templateColumns="repeat(2, 1fr)"
+      gap={{ base: 10, lg: 20 }}
+      mt={3}
+      pt={6}
+    >
       <GridItem {...largeProps}>
         <Records />
       </GridItem>
@@ -52,4 +57,4 @@ export const Visualizations: React.FC = () => {
       </GridItem>
     </Grid>
   );
-}
+};
